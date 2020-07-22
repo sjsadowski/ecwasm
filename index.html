@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Wasm Test</title>
+    </head>
+    <script type="module">
+
+        import init, { put_email } from './pkg/ecwasm.js';
+        // below is inacessible except for in this module
+
+        async function add_email(host, email) {
+            await init();
+            put_email(host, email);
+        }
+
+        add_email('http://localhost:8000', 'test@test.com');
+    </script>
+    <body>
+
+    </body>
+</html>
